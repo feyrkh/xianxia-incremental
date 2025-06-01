@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2plup5b7mq0j"]
+
+[ext_resource type="Script" uid="uid://cpxstq85efell" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ct7rj566eg3ej" path="res://actions/ActionsListView.tscn" id="2_0xm2m"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0xm2m")
+
+[node name="ActionsListView" parent="." instance=ExtResource("2_0xm2m")]
+layout_mode = 1
+anchor_right = 0.171007
+grow_vertical = 1

@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct7rj566eg3ej"]
+
+[ext_resource type="Script" uid="uid://dim0xrwbbcorm" path="res://actions/ActionsListView.gd" id="1_0i2m4"]
+
+[node name="ActionsListView" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 0.284722
+anchor_bottom = 1.0
+grow_vertical = 2
+script = ExtResource("1_0i2m4")
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="EntryList" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
