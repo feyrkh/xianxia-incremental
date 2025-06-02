@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://bby1ccg2rqj77"]
+
+[ext_resource type="Script" uid="uid://2wxy6powufhp" path="res://values/EditStringValueView.gd" id="1_no5ko"]
+[ext_resource type="Texture2D" uid="uid://d11y6hee6jam2" path="res://art/pencil.svg" id="2_4cl7e"]
+[ext_resource type="Texture2D" uid="uid://yp8dboagbqyy" path="res://art/check-mark.svg" id="3_atrvc"]
+[ext_resource type="Texture2D" uid="uid://cp4wrmieakiyh" path="res://art/cross-mark.svg" id="4_bbbup"]
+
+[node name="EditStringValueView" type="HBoxContainer"]
+script = ExtResource("1_no5ko")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "asdf"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="EditButton" type="TextureButton" parent="."]
+visible = false
+custom_minimum_size = Vector2(15, 10)
+layout_mode = 2
+texture_normal = ExtResource("2_4cl7e")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SaveButton" type="TextureButton" parent="."]
+visible = false
+custom_minimum_size = Vector2(15, 10)
+layout_mode = 2
+texture_normal = ExtResource("3_atrvc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CancelButton" type="TextureButton" parent="."]
+visible = false
+custom_minimum_size = Vector2(15, 10)
+layout_mode = 2
+texture_normal = ExtResource("4_bbbup")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="gui_input" from="Label" to="." method="_on_label_gui_input"]
+[connection signal="focus_exited" from="LineEdit" to="." method="_on_line_edit_focus_exited"]
+[connection signal="gui_input" from="LineEdit" to="." method="_on_line_edit_gui_input"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="EditButton" to="." method="_on_edit_button_pressed"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="CancelButton" to="." method="_on_cancel_button_pressed"]

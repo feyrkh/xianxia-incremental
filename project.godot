@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ActionMgr="*res://actions/ActionMgr.gd"
+CultivatorMgr="*res://mgr/CultivatorMgr.gd"
 
 [rendering]
 

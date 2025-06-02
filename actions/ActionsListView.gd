@@ -20,6 +20,8 @@ func _ready():
 		add_all_action_views()
 
 func add_all_action_views():
+	if !entry_list:
+		return
 	for child in entry_list.get_children():
 		child.queue_free()
 	for i in range(actions_list_data.active_actions.size()):

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cedex0jjidvp4"]
+
+[ext_resource type="Script" uid="uid://17luvhayxntj" path="res://values/StringValueView.gd" id="1_iyhax"]
+
+[node name="StringValueView" type="Label"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iyhax")

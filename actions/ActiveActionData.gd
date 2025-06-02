@@ -22,17 +22,24 @@ var repeated_count:int = 0:
 		repeated_count = v
 		repeat_count_updated.emit()
 
+var source
+var target
+var context:Dictionary
+
 static func empty_data() -> ActiveActionData:
 	var result := ActiveActionData.new(UNKNOWN_ACTION, 0)
 	return result
 
-func _init(action:ActionData, elapsed:float = 0):
+func _init(action:ActionData, elapsed:float = 0, source=null, target=null, context=null):
 	self.action = action
 	self.time_elapsed = elapsed
 
 func reset() -> void:
 	repeated_count = 0
 	time_elapsed = 0
+
+func _action_complete(data:ActiveActionData) -> void:
+	pass # override me in subclasses
 
 func update(time_to_pass:float) -> float:
 	# return time remaining if there was extra
@@ -42,6 +49,7 @@ func update(time_to_pass:float) -> float:
 		time_to_pass -= time_to_use
 		if time_elapsed + 0.0000001 > action.time_required:
 			repeated_count += 1
+			_action_complete(self)
 			action_complete.emit(self)
 			if should_repeat_count > repeated_count:
 				time_elapsed = 0

@@ -13,6 +13,11 @@ var cur_idx := -1:
 			active_action_changed.emit(cur_idx, v)
 			cur_idx = v
 
+func rendered() -> Control:
+	var result = preload("res://actions/ActionsListView.tscn").instantiate()
+	result.actions_list_data = self
+	return result
+
 func add_entry(action:ActiveActionData) -> void:
 	active_actions.append(action)
 	if cur_idx == -1 || cur_idx >= active_actions.size():
