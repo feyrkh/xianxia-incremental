@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl5xyijnj40n"]
+
+[ext_resource type="Script" uid="uid://cnbcqbp6row72" path="res://entities/SelectHandle.gd" id="1_68hll"]
+
+[node name="SelectHandle" type="ColorRect"]
+custom_minimum_size = Vector2(0, 30)
+size_flags_horizontal = 3
+color = Color(0.662745, 0.662745, 0.662745, 1)
+script = ExtResource("1_68hll")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

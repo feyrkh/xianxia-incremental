@@ -34,4 +34,4 @@ func update_progress() -> void:
 	progress_bar.value = complete_pct
 
 func update_label() -> void:
-	find_child("Label").text = "%s (%.1fs)%s" % [active_action_data.action.action_name, active_action_data.action.time_required, "" if active_action_data.should_repeat_count <= 1 else " [%d/%d]" % [active_action_data.repeated_count, active_action_data.should_repeat_count]]
+	find_child("Label").text = "%s %s" % [active_action_data.action.action_name, "" if active_action_data.should_repeat_count <= 1 else " [%d/%d]" % [active_action_data.repeated_count, active_action_data.should_repeat_count]]

@@ -1,11 +1,16 @@
-[gd_scene format=3 uid="uid://bll2dslxod06b"]
+[gd_scene load_steps=2 format=3 uid="uid://bll2dslxod06b"]
+
+[ext_resource type="Script" uid="uid://cayjre8cmoj2u" path="res://entities/EntityCard.gd" id="1_1y8go"]
 
 [node name="EntityCard" type="PanelContainer"]
-custom_minimum_size = Vector2(223, 100)
+custom_minimum_size = Vector2(223, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -929.0
-offset_bottom = -391.0
+offset_bottom = -430.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_1y8go")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

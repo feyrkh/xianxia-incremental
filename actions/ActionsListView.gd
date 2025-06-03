@@ -2,6 +2,7 @@ extends Container
 class_name ActionsList
 
 @onready var entry_list:Container = find_child("EntryList")
+var short_action_list:bool = false
 var actions_list_data:ActionsListData:
 	set(v):
 		actions_list_data = v
@@ -24,8 +25,11 @@ func add_all_action_views():
 		return
 	for child in entry_list.get_children():
 		child.queue_free()
-	for i in range(actions_list_data.active_actions.size()):
-		on_entry_added(actions_list_data.active_actions[i], i)
+	if short_action_list:
+		on_entry_added(actions_list_data.active_actions[actions_list_data.cur_idx], 0)
+	else:
+		for i in range(actions_list_data.active_actions.size()):
+			on_entry_added(actions_list_data.active_actions[i], i)
 
 func on_entry_added(new_action:ActiveActionData, idx:int) -> void:
 	var view = preload("res://actions/ActiveActionView.tscn").instantiate()
@@ -39,4 +43,5 @@ func on_entry_removed(idx:int) -> void:
 		view.queue_free()
 
 func on_active_entry_changed(old_idx:int, new_idx:int) -> void:
-	print("New active entry idx: ", new_idx)
+	if short_action_list:
+		add_all_action_views()

@@ -5,7 +5,7 @@ extends Control
 var actions_list_data:ActionsListData = ActionsListData.new()
 
 func _ready():
-	for i in range(20):
+	for i in range(5):
 		var cultivator:CultivatorData = CultivatorData.new_cultivator("Wandering Cultivator "+str(i))
 		CultivatorMgr.add_cultivator(cultivator)
 		find_child("CultivatorsContainer").datasource = CultivatorMgr

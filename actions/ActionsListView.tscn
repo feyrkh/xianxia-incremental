@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 script = ExtResource("1_0i2m4")
 metadata/_edit_use_anchors_ = true
 
@@ -19,4 +20,3 @@ layout_mode = 2
 [node name="EntryList" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3

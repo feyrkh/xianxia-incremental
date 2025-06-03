@@ -56,3 +56,7 @@ func update(time_to_pass:float) -> float:
 			else:
 				action_repeats_complete.emit(self)
 	return max(0, time_to_pass)
+
+func set_should_repeat_count(v:int) -> ActiveActionData:
+	should_repeat_count = v
+	return self

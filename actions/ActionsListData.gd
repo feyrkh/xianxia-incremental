@@ -9,12 +9,23 @@ signal list_completed()
 var active_actions:Array[ActiveActionData] = []
 var cur_idx := -1:
 	set(v):
+		if v >= active_actions.size():
+			if active_actions.size() == 0:
+				v = -1
+			else:
+				v = 0
+				print("all actions complete, resetting")
+				for action in active_actions:
+					action.reset()
+				list_completed.emit()
 		if v != cur_idx:
-			active_action_changed.emit(cur_idx, v)
+			var old_idx = cur_idx
 			cur_idx = v
+			active_action_changed.emit(old_idx, cur_idx)
 
 func rendered() -> Control:
-	var result = preload("res://actions/ActionsListView.tscn").instantiate()
+	var result
+	result = preload("res://actions/ActionsListView.tscn").instantiate()
 	result.actions_list_data = self
 	return result
 
@@ -43,12 +54,6 @@ func next_action() -> void:
 	cur_idx += 1
 	if active_actions.size() == 0:
 		cur_idx = -1
-	elif cur_idx >= active_actions.size():
-		cur_idx = 0
-		print("all actions complete, resetting")
-		for action in active_actions:
-			action.reset()
-		list_completed.emit()
 	highlight(cur_idx)
 
 func highlight(idx:int) -> void:
